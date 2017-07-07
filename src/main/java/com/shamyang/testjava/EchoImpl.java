@@ -7,6 +7,7 @@ public class EchoImpl implements Echo {
 
     @Override
     public String say(String name) {
-        return null;
+        System.out.println("hello,"+name);
+        return name;
     }
 }

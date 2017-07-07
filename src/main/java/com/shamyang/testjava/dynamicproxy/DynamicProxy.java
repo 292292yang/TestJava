@@ -1,5 +1,8 @@
 package com.shamyang.testjava.dynamicproxy;
 
+import com.shamyang.testjava.Echo;
+import com.shamyang.testjava.EchoImpl;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -33,5 +36,11 @@ public class DynamicProxy implements InvocationHandler{
         result=method.invoke(target, args);
         System.out.println("事物结束");
         return result;
+    }
+
+    public static void main(String[] args) {
+        DynamicProxy dp=new DynamicProxy();
+        Echo echo= (Echo) dp.bind(new EchoImpl());
+        echo.say("hello");
     }
 }
